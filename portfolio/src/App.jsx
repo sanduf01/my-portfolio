@@ -101,7 +101,7 @@ export default function App() {
         <h2>Experience</h2>
         <div className="card">
           <h3>Online IT Teaching Intern – LEARN</h3>
-          <span>Top 3 out of 180 (EduNET)</span>
+          <span>-</span>
           <ul>
             <li>Assisted in teaching C and Python</li>
             <li>Created and improved Linux & FOSS content</li>
