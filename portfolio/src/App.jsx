@@ -27,9 +27,9 @@ export default function App() {
             transition={{ duration: 0.8 }}
             className="hero-left"
           >
-            <h1>Empowering Businesses Through Innovative Software Solutions</h1>
+            <h1>Empowering Growth Through Innovative Software Solutions</h1>
             <p className="subtext">
-              As a skilled software engineer, I deliver cutting-edge web applications and digital strategies to drive growth and success for your enterprise.
+              Motivated undergraduate software engineering student with hands-on experience in web development and learning management systems. Skilled in building practical software projects and collaborative solutions. Eager to apply technical skills to create impactful digital experiences.
             </p>
             <div className="hero-buttons">
               <a href="#projects" className="primary-btn">View My Work</a>
