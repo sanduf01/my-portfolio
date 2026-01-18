@@ -1,6 +1,78 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function App() {
+  const [activeFilter, setActiveFilter] = useState("All Projects");
+
+  const projects = [
+    {
+      id: 1,
+      title: "E-Learning Platform",
+      category: "Web Development",
+      description: "A comprehensive learning management system built with React and Node.js, featuring interactive courses and progress tracking.",
+      technologies: ["React", "Node.js", "MongoDB", "Express"],
+      role: "Full Stack Development",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=E-Learning",
+      link: "#"
+    },
+    {
+      id: 2,
+      title: "Task Management App",
+      category: "Web Development",
+      description: "A collaborative task management application with real-time updates and team collaboration features.",
+      technologies: ["React", "Firebase", "Tailwind CSS"],
+      role: "Frontend Development",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Task+Manager",
+      link: "#"
+    },
+    {
+      id: 3,
+      title: "Linux Automation Scripts",
+      category: "Other Projects",
+      description: "Collection of Bash scripts for system automation, backup management, and development environment setup.",
+      technologies: ["Bash", "Linux", "Git"],
+      role: "System Administration",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Linux+Scripts",
+      link: "#"
+    },
+    {
+      id: 4,
+      title: "Mobile Learning Companion",
+      category: "Mobile Apps",
+      description: "Cross-platform mobile app for accessing educational content and tracking learning progress on-the-go.",
+      technologies: ["React Native", "Expo", "Firebase"],
+      role: "Mobile Development",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Mobile+App",
+      link: "#"
+    },
+    {
+      id: 5,
+      title: "Portfolio Website",
+      category: "Web Development",
+      description: "Modern, responsive portfolio website showcasing projects and skills with smooth animations and dark theme.",
+      technologies: ["React", "Tailwind CSS", "Framer Motion"],
+      role: "Frontend Development",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Portfolio",
+      link: "#"
+    },
+    {
+      id: 6,
+      title: "Code Review Tool",
+      category: "Other Projects",
+      description: "Automated code review tool that analyzes code quality, security vulnerabilities, and best practices.",
+      technologies: ["Python", "Flask", "Docker"],
+      role: "Backend Development",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Code+Review",
+      link: "#"
+    }
+  ];
+
+  const filters = ["All Projects", "Web Development", "Mobile Apps", "Other Projects"];
+
+  const filteredProjects = activeFilter === "All Projects"
+    ? projects
+    : projects.filter(project => project.category === activeFilter);
+
   return (
     <main className="container">
       {/* NAVIGATION */}
@@ -112,12 +184,113 @@ export default function App() {
 
       {/* PROJECTS */}
       <section className="section" id="projects">
-        <h2>Projects</h2>
-        <div className="grid">
-          <div className="card">Project 1 – React</div>
-          <div className="card">Project 2 – Node</div>
-          <div className="card">Project 3 – Linux</div>
-        </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Featured Projects
+        </motion.h2>
+
+        {/* Filter Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
+          {filters.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                activeFilter === filter
+                  ? "bg-yellowBrand text-black shadow-lg shadow-yellowBrand/25"
+                  : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Projects Grid */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              layout
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
+              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 hover:border-yellowBrand/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellowBrand/10"
+            >
+              {/* Project Image */}
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-yellowBrand/90 text-black text-xs font-semibold rounded-full backdrop-blur-sm">
+                    {project.category}
+                  </span>
+                </div>
+              </div>
+
+              {/* Project Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellowBrand transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 bg-white/10 text-xs text-gray-300 rounded-md border border-white/20"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Role */}
+                <div className="text-yellowBrand text-sm font-medium mb-4">
+                  {project.role}
+                </div>
+
+                {/* Explore Button */}
+                <motion.a
+                  href={project.link}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-yellowBrand text-black font-semibold rounded-full hover:bg-yellow-400 transition-colors duration-300"
+                >
+                  Explore
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </motion.a>
+              </div>
+
+              {/* Hover Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-yellowBrand/0 via-yellowBrand/5 to-yellowBrand/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
       {/* EDUCATION */}
