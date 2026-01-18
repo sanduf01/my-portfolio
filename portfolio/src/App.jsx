@@ -48,7 +48,7 @@ export default function App() {
             className="hero-right"
           >
             <div className="image-card">
-              <img src="https://via.placeholder.com/400x500/cccccc/000000?text=Portrait" alt="Sanduni Fernando" className="portrait" />
+              <img src="my_p.png" alt="Sanduni Fernando" className="portrait" />
               <div className="badge badge1">5+ Years Experience</div>
               <div className="badge badge2">100+ Projects</div>
               <div className="badge badge3">Certified Expert</div>

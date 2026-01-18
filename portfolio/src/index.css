@@ -168,12 +168,15 @@ body {
   border-radius: 2rem;
   overflow: hidden;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .portrait {
-  width: 100%;
-  height: auto;
-  display: block;
+  width: auto;
+  height: 550px;
+  align-items: center;
 }
 
 .badge {
@@ -281,6 +284,10 @@ body {
     justify-content: center;
   }
 
+  .portrait {
+    height: 400px;
+  }
+
   .badge {
     position: static;
     display: inline-block;
@@ -306,6 +313,10 @@ body {
 
   .hero-container {
     padding: 1.5rem;
+  }
+
+  .portrait {
+    height: 300px;
   }
 }
 
