@@ -243,8 +243,8 @@ export default function App() {
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
             <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
             <a href="#certificates">Certificates</a>
             <a href="#contact">Contact</a>
           </div>
@@ -558,24 +558,29 @@ export default function App() {
           {/* Timeline Items */}
           {[
             {
-              date: "2022 – Present",
-              title: "Undergraduate – Software Engineering",
-              description: "Bachelor of Science in Software Engineering, University of Moratuwa"
+              date: "2023 – Present",
+              title: "Bachelor of Software Engineering (Honours)",
+              description: "The Open University of Sri Lanka – Undergraduate"
             },
             {
-              date: "2020 – 2022",
-              title: "G.C.E A/L – Physical Science",
-              description: "Advanced Level Examination with 1C and 2S grades"
+              date: "2022",
+              title: "G.C.E. A/L – Physical Science",
+              description: "1C, 2S passes"
             },
             {
-              date: "2015 – 2020",
-              title: "G.C.E O/L – 9 As",
-              description: "Ordinary Level Examination with 9 A grades"
+              date: "2019",
+              title: "G.C.E. O/L",
+              description: "9 A passes"
             },
             {
-              date: "2023",
-              title: "FOSS & Linux Certification",
-              description: "Certified by EduNET in Free and Open-Source Software and Linux"
+              date: "2014 – 2022",
+              title: "Secondary Education",
+              description: "Anula Vidyalaya, Nugegoda"
+            },
+            {
+              date: "2009 – 2014",
+              title: "Primary Education",
+              description: "Princess of Wals' College, Moratuwa"
             }
           ].map((item, index) => (
             <motion.div
