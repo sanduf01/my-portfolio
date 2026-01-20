@@ -1,5 +1,37 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import {
+  FaReact,
+  FaNodeJs,
+  FaJava,
+  FaDatabase,
+  FaGitAlt,
+  FaDocker,
+  FaCode,
+  FaBrain,
+  FaUsers,
+  FaClock,
+  FaLightbulb,
+  FaBookOpen,
+  FaHtml5,
+  FaCss3,
+  FaJs,
+  FaPython,
+  FaPhp,
+  FaGithub,
+  FaTools,
+  FaCogs,
+  FaServer,
+  FaTerminal,
+  FaCodeBranch,
+  FaRocket,
+  FaPuzzlePiece,
+  FaHandshake,
+  FaComments,
+  FaCalendarAlt,
+  FaSyncAlt,
+  FaGraduationCap
+} from "react-icons/fa";
 
 export default function App() {
   const [activeFilter, setActiveFilter] = useState("All Projects");
@@ -72,6 +104,48 @@ export default function App() {
   const filteredProjects = activeFilter === "All Projects"
     ? projects
     : projects.filter(project => project.category === activeFilter);
+
+  const [activeSkillTab, setActiveSkillTab] = useState("Frontend");
+
+  const skillsData = {
+    Frontend: [
+      { name: "React.js", icon: FaReact, proficiency: "Advanced" },
+      { name: "Next.js", icon: FaRocket, proficiency: "Intermediate" },
+      { name: "HTML5", icon: FaHtml5, proficiency: "Expert" },
+      { name: "CSS3", icon: FaCss3, proficiency: "Expert" },
+      { name: "JavaScript", icon: FaJs, proficiency: "Advanced" },
+      { name: "Tailwind CSS", icon: FaCogs, proficiency: "Advanced" }
+    ],
+    Backend: [
+      { name: "Java", icon: FaJava, proficiency: "Intermediate" },
+      { name: "Spring Boot", icon: FaServer, proficiency: "Intermediate" },
+      { name: "Node.js", icon: FaNodeJs, proficiency: "Advanced" },
+      { name: "Express.js", icon: FaCogs, proficiency: "Advanced" },
+      { name: "PHP", icon: FaPhp, proficiency: "Beginner" }
+    ],
+    Database: [
+      { name: "MySQL", icon: FaDatabase, proficiency: "Intermediate" },
+      { name: "MongoDB", icon: FaDatabase, proficiency: "Advanced" },
+      { name: "PostgreSQL", icon: FaDatabase, proficiency: "Intermediate" }
+    ],
+    Tools: [
+      { name: "Git", icon: FaGitAlt, proficiency: "Advanced" },
+      { name: "GitHub", icon: FaGithub, proficiency: "Advanced" },
+      { name: "Docker", icon: FaDocker, proficiency: "Intermediate" },
+      { name: "Postman", icon: FaTools, proficiency: "Advanced" },
+      { name: "VS Code", icon: FaCode, proficiency: "Expert" }
+    ],
+    "Soft Skills": [
+      { name: "Problem Solving", icon: FaPuzzlePiece, description: "Analytical thinking and creative solution development" },
+      { name: "Team Collaboration", icon: FaUsers, description: "Effective communication and group dynamics" },
+      { name: "Communication Skills", icon: FaComments, description: "Clear technical communication and presentation" },
+      { name: "Time Management", icon: FaClock, description: "Efficient task prioritization and deadline management" },
+      { name: "Adaptability", icon: FaSyncAlt, description: "Quick learning and flexibility in changing environments" },
+      { name: "Continuous Learning", icon: FaBookOpen, description: "Commitment to ongoing skill development and knowledge acquisition" }
+    ]
+  };
+
+  const skillTabs = Object.keys(skillsData);
 
   return (
     <main className="container">
@@ -147,25 +221,90 @@ export default function App() {
 
       {/* SKILLS */}
       <section className="section" id="skills">
-        <h2>Skills</h2>
-        <div className="grid">
-          <div className="card">
-            <h3>Programming</h3>
-            <p>C, Python, JavaScript</p>
-          </div>
-          <div className="card">
-            <h3>Web</h3>
-            <p>React, Vite, Tailwind CSS</p>
-          </div>
-          <div className="card">
-            <h3>Tools</h3>
-            <p>Linux, Git, VS Code</p>
-          </div>
-          <div className="card">
-            <h3>Soft Skills</h3>
-            <p>Teaching, Communication, Teamwork</p>
-          </div>
-        </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Skills
+        </motion.h2>
+
+        {/* Skill Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
+          {skillTabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveSkillTab(tab)}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                activeSkillTab === tab
+                  ? "bg-yellowBrand text-black shadow-lg shadow-yellowBrand/25"
+                  : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Skills Grid */}
+        <motion.div
+          key={activeSkillTab}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {skillsData[activeSkillTab].map((skill, index) => (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellowBrand/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellowBrand/10"
+            >
+              {/* Icon */}
+              <div className="flex justify-center mb-4">
+                <div className="p-4 bg-yellowBrand/10 rounded-full group-hover:bg-yellowBrand/20 transition-colors duration-300">
+                  <skill.icon className="w-8 h-8 text-yellowBrand" />
+                </div>
+              </div>
+
+              {/* Skill Name */}
+              <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-yellowBrand transition-colors">
+                {skill.name}
+              </h3>
+
+              {/* Proficiency or Description */}
+              {skill.proficiency ? (
+                <div className="text-center">
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                    skill.proficiency === 'Expert' ? 'bg-green-500/20 text-green-400' :
+                    skill.proficiency === 'Advanced' ? 'bg-blue-500/20 text-blue-400' :
+                    skill.proficiency === 'Intermediate' ? 'bg-yellow-500/20 text-yellow-400' :
+                    'bg-gray-500/20 text-gray-400'
+                  }`}>
+                    {skill.proficiency}
+                  </span>
+                </div>
+              ) : (
+                <p className="text-gray-300 text-sm text-center leading-relaxed">
+                  {skill.description}
+                </p>
+              )}
+
+              {/* Hover Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-yellowBrand/0 via-yellowBrand/5 to-yellowBrand/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
       {/* EXPERIENCE */}
