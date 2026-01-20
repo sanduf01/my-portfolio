@@ -30,7 +30,10 @@ import {
   FaComments,
   FaCalendarAlt,
   FaSyncAlt,
-  FaGraduationCap
+  FaGraduationCap,
+  FaEnvelope,
+  FaGlobe,
+  FaLinkedin
 } from "react-icons/fa";
 
 export default function App() {
@@ -128,6 +131,53 @@ export default function App() {
     : projects.filter(project => project.category === activeFilter);
 
   const [activeSkillTab, setActiveSkillTab] = useState("Programming");
+
+  const [activeCertTab, setActiveCertTab] = useState("Programming");
+
+  const certificatesData = {
+    Programming: [],
+    "Web Technologies": [],
+    Databases: [],
+    Frameworks: [],
+    "Tools & Platforms": [
+      {
+        title: "Networking Essentials",
+        issuer: "Cisco Networking Academy",
+        date: "Jan 2025",
+        icon: FaCodeBranch
+      },
+      {
+        title: "Codeless Test Automation",
+        issuer: "Test Automation University",
+        date: "2025",
+        icon: FaTools
+      }
+    ],
+    Concepts: [
+      {
+        title: "Online Learning Program",
+        issuer: "CODL, University of Moratuwa",
+        date: "2023",
+        icon: FaGraduationCap
+      }
+    ],
+    "AI & ML": [
+      {
+        title: "Stay Ahead of the AI Curve",
+        issuer: "Google",
+        date: "Nov 2025",
+        icon: FaBrain
+      },
+      {
+        title: "Intro to Machine Learning",
+        issuer: "Kaggle",
+        date: "Jun 2025",
+        icon: FaBrain
+      }
+    ],
+    "Operating Systems": [],
+    "Soft Skills": []
+  };
 
   const skillsData = {
     Programming: [
@@ -500,14 +550,159 @@ export default function App() {
         </ul>
       </section>
 
+      {/* CERTIFICATES */}
+      <section className="section" id="certificates">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Certificates
+        </motion.h2>
+
+        {/* Certificate Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
+          {Object.keys(certificatesData).map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveCertTab(tab)}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                activeCertTab === tab
+                  ? "bg-yellowBrand text-black shadow-lg shadow-yellowBrand/25"
+                  : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Certificates Grid */}
+        <motion.div
+          key={activeCertTab}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {certificatesData[activeCertTab].map((cert, index) => (
+            <motion.div
+              key={cert.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellowBrand/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellowBrand/10"
+            >
+              {/* Icon */}
+              <div className="flex justify-center mb-4">
+                <div className="p-4 bg-yellowBrand/10 rounded-full group-hover:bg-yellowBrand/20 transition-colors duration-300">
+                  <cert.icon className="w-8 h-8 text-yellowBrand" />
+                </div>
+              </div>
+
+              {/* Certificate Title */}
+              <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-yellowBrand transition-colors">
+                {cert.title}
+              </h3>
+
+              {/* Issuer */}
+              <p className="text-yellowBrand text-sm font-medium text-center mb-2">
+                {cert.issuer}
+              </p>
+
+              {/* Date */}
+              <div className="text-center">
+                <span className="inline-block px-3 py-1 bg-white/10 text-xs text-gray-300 rounded-md border border-white/20">
+                  {cert.date}
+                </span>
+              </div>
+
+              {/* Hover Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-yellowBrand/0 via-yellowBrand/5 to-yellowBrand/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
       {/* CONTACT */}
       <section className="section" id="contact">
-        <h2>Contact</h2>
-        <form className="contact">
-          <input placeholder="Your Email" />
-          <textarea placeholder="Your Message" />
-          <button>Send Message</button>
-        </form>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Contact
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              title: "Email",
+              value: "sandusanf01@gmail.com",
+              icon: FaEnvelope,
+              link: "mailto:sandusanf01@gmail.com"
+            },
+            {
+              title: "Portfolio",
+              value: "sanduf01.vercel.app",
+              icon: FaGlobe,
+              link: "https://sanduf01.vercel.app"
+            },
+            {
+              title: "LinkedIn",
+              value: "linkedin.com/in/sanduf01",
+              icon: FaLinkedin,
+              link: "https://linkedin.com/in/sanduf01"
+            },
+            {
+              title: "GitHub",
+              value: "github.com/sanduf01",
+              icon: FaGithub,
+              link: "https://github.com/sanduf01"
+            }
+          ].map((contact, index) => (
+            <motion.a
+              key={contact.title}
+              href={contact.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8, scale: 1.05 }}
+              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellowBrand/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellowBrand/10 block"
+            >
+              {/* Icon */}
+              <div className="flex justify-center mb-4">
+                <div className="p-4 bg-yellowBrand/10 rounded-full group-hover:bg-yellowBrand/20 transition-colors duration-300">
+                  <contact.icon className="w-8 h-8 text-yellowBrand" />
+                </div>
+              </div>
+
+              {/* Contact Title */}
+              <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-yellowBrand transition-colors">
+                {contact.title}
+              </h3>
+
+              {/* Contact Value */}
+              <p className="text-gray-300 text-sm text-center leading-relaxed">
+                {contact.value}
+              </p>
+
+              {/* Hover Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-yellowBrand/0 via-yellowBrand/5 to-yellowBrand/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+            </motion.a>
+          ))}
+        </div>
       </section>
 
     </main>
