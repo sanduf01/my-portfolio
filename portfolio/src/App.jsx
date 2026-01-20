@@ -243,7 +243,9 @@ export default function App() {
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
             <a href="#projects">Projects</a>
+            <a href="#certificates">Certificates</a>
             <a href="#contact">Contact</a>
           </div>
           <button className="cta-button">Get Started</button>
@@ -540,14 +542,70 @@ export default function App() {
       </section>
 
       {/* EDUCATION */}
-      <section className="section">
-        <h2>Education</h2>
-        <ul>
-          <li>Undergraduate – Software Engineering</li>
-          <li>G.C.E O/L – 9 As</li>
-          <li>G.C.E A/L – Physical Science (1C, 2S)</li>
-          <li>FOSS & Linux Certification – EduNET</li>
-        </ul>
+      <section className="section" id="education">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Education
+        </motion.h2>
+        <div className="relative max-w-4xl mx-auto">
+          {/* Timeline Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-yellowBrand to-yellowBrand/50"></div>
+
+          {/* Timeline Items */}
+          {[
+            {
+              date: "2022 – Present",
+              title: "Undergraduate – Software Engineering",
+              description: "Bachelor of Science in Software Engineering, University of Moratuwa"
+            },
+            {
+              date: "2020 – 2022",
+              title: "G.C.E A/L – Physical Science",
+              description: "Advanced Level Examination with 1C and 2S grades"
+            },
+            {
+              date: "2015 – 2020",
+              title: "G.C.E O/L – 9 As",
+              description: "Ordinary Level Examination with 9 A grades"
+            },
+            {
+              date: "2023",
+              title: "FOSS & Linux Certification",
+              description: "Certified by EduNET in Free and Open-Source Software and Linux"
+            }
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="relative flex items-start mb-12"
+            >
+              {/* Timeline Node */}
+              <div className="flex-shrink-0 w-16 h-16 bg-yellowBrand rounded-full flex items-center justify-center shadow-lg shadow-yellowBrand/25 z-10">
+                <FaGraduationCap className="w-6 h-6 text-black" />
+              </div>
+
+              {/* Content Card */}
+              <div className="ml-8 bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 shadow-xl shadow-black/10 flex-1 group hover:bg-white/10 transition-all duration-300">
+                <div className="text-yellowBrand text-sm font-bold mb-2">
+                  {item.date}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* CERTIFICATES */}
