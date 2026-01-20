@@ -127,35 +127,49 @@ export default function App() {
     ? projects.filter(project => ["Fullstack", "Frontend", "Backend", "Other"].includes(project.category))
     : projects.filter(project => project.category === activeFilter);
 
-  const [activeSkillTab, setActiveSkillTab] = useState("Frontend");
+  const [activeSkillTab, setActiveSkillTab] = useState("Programming");
 
   const skillsData = {
-    Frontend: [
-      { name: "React.js", icon: FaReact, proficiency: "Advanced" },
-      { name: "Next.js", icon: FaRocket, proficiency: "Intermediate" },
-      { name: "HTML5", icon: FaHtml5, proficiency: "Expert" },
-      { name: "CSS3", icon: FaCss3, proficiency: "Expert" },
-      { name: "JavaScript", icon: FaJs, proficiency: "Advanced" },
-      { name: "Tailwind CSS", icon: FaCogs, proficiency: "Advanced" }
-    ],
-    Backend: [
+    Programming: [
+      { name: "Python", icon: FaPython, proficiency: "Intermediate" },
       { name: "Java", icon: FaJava, proficiency: "Intermediate" },
-      { name: "Spring Boot", icon: FaServer, proficiency: "Intermediate" },
-      { name: "Node.js", icon: FaNodeJs, proficiency: "Advanced" },
-      { name: "Express.js", icon: FaCogs, proficiency: "Advanced" },
-      { name: "PHP", icon: FaPhp, proficiency: "Beginner" }
+      { name: "C", icon: FaCode, proficiency: "Intermediate" }
     ],
-    Database: [
+    "Web Technologies": [
+      { name: "HTML", icon: FaHtml5, proficiency: "Expert" },
+      { name: "CSS", icon: FaCss3, proficiency: "Expert" },
+      { name: "JavaScript", icon: FaJs, proficiency: "Advanced" },
+      { name: "React Native", icon: FaReact, proficiency: "Intermediate" },
+      { name: "MERN Stack", icon: FaNodeJs, proficiency: "Basic" }
+    ],
+    Databases: [
       { name: "MySQL", icon: FaDatabase, proficiency: "Intermediate" },
-      { name: "MongoDB", icon: FaDatabase, proficiency: "Advanced" },
-      { name: "PostgreSQL", icon: FaDatabase, proficiency: "Intermediate" }
+      { name: "MongoDB", icon: FaDatabase, proficiency: "Advanced" }
     ],
-    Tools: [
+    Frameworks: [
+      { name: "CodeIgniter", icon: FaCogs, proficiency: "Intermediate" }
+    ],
+    "Tools & Platforms": [
+      { name: "Moodle", icon: FaBookOpen, proficiency: "Intermediate" },
       { name: "Git", icon: FaGitAlt, proficiency: "Advanced" },
       { name: "GitHub", icon: FaGithub, proficiency: "Advanced" },
-      { name: "Docker", icon: FaDocker, proficiency: "Intermediate" },
-      { name: "Postman", icon: FaTools, proficiency: "Advanced" },
-      { name: "VS Code", icon: FaCode, proficiency: "Expert" }
+      { name: "Visual Studio", icon: FaCode, proficiency: "Intermediate" },
+      { name: "VS Code", icon: FaCode, proficiency: "Expert" },
+      { name: "Figma", icon: FaTools, proficiency: "Intermediate" }
+    ],
+    Concepts: [
+      { name: "OOP", icon: FaCogs, proficiency: "Intermediate" },
+      { name: "Data Structures & Algorithms", icon: FaCodeBranch, proficiency: "Basic" },
+      { name: "SDLC", icon: FaSyncAlt, proficiency: "Intermediate" }
+    ],
+    "AI & ML": [
+      { name: "Data Preprocessing", icon: FaBrain, proficiency: "Intermediate" },
+      { name: "Predictive Modeling", icon: FaBrain, proficiency: "Intermediate" },
+      { name: "Data Analysis", icon: FaBrain, proficiency: "Intermediate" }
+    ],
+    "Operating Systems": [
+      { name: "Windows", icon: FaTerminal, proficiency: "Advanced" },
+      { name: "Linux", icon: FaTerminal, proficiency: "Basic" }
     ],
     "Soft Skills": [
       { name: "Problem Solving", icon: FaPuzzlePiece, description: "Analytical thinking and creative solution development" },
@@ -331,15 +345,36 @@ export default function App() {
 
       {/* EXPERIENCE */}
       <section className="section" id="experience">
-        <h2>Experience</h2>
-        <div className="card">
-          <h3>Online IT Teaching Intern – LEARN</h3>
-          <span>-</span>
-          <ul>
-            <li>Assisted in teaching C and Python</li>
-            <li>Created and improved Linux & FOSS content</li>
-            <li>Supported undergraduate IT learners</li>
-          </ul>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Experience
+        </motion.h2>
+        <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="card group hover:bg-white/10 transition-all duration-300"
+          >
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <h3 className="text-xl font-bold text-white group-hover:text-yellowBrand transition-colors">Intern – Content Creation & Teaching Assistant (Remote)</h3>
+                <p className="text-yellowBrand text-sm font-medium">Lanka Education and Research Network (LEARN), University of Peradeniya</p>
+              </div>
+              <span className="text-gray-400 text-sm">March 2024 – August 2024</span>
+            </div>
+            <ul className="text-gray-300 space-y-2">
+              <li>• Assisted in teaching C and Python programming languages</li>
+              <li>• Created and improved Linux & FOSS educational content</li>
+              <li>• Supported undergraduate IT learners in remote learning environments</li>
+              <li>• Developed interactive learning materials and resources</li>
+            </ul>
+          </motion.div>
         </div>
       </section>
 
