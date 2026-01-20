@@ -39,70 +39,92 @@ export default function App() {
   const projects = [
     {
       id: 1,
-      title: "E-Learning Platform",
-      category: "Web Development",
-      description: "A comprehensive learning management system built with React and Node.js, featuring interactive courses and progress tracking.",
-      technologies: ["React", "Node.js", "MongoDB", "Express"],
-      role: "Full Stack Development",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=E-Learning",
+      title: "Smart O/L ICT",
+      category: "Fullstack",
+      description: "Gamified e-learning platform with authentication, quizzes, leaderboards, progress tracking, REST APIs. (Full-Stack Group Project, 2025 – Present)",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "JWT", "Bootstrap"],
+      role: "Full-Stack Development",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Smart+O/L+ICT",
       link: "#"
     },
     {
       id: 2,
-      title: "Task Management App",
-      category: "Web Development",
-      description: "A collaborative task management application with real-time updates and team collaboration features.",
-      technologies: ["React", "Firebase", "Tailwind CSS"],
+      title: "Personal Portfolio Website",
+      category: "Frontend",
+      description: "Responsive portfolio with animations and optimized performance. (Jan 2026)",
+      technologies: ["React", "Tailwind CSS"],
       role: "Frontend Development",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Task+Manager",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Portfolio+Website",
       link: "#"
     },
     {
       id: 3,
-      title: "Linux Automation Scripts",
-      category: "Other Projects",
-      description: "Collection of Bash scripts for system automation, backup management, and development environment setup.",
-      technologies: ["Bash", "Linux", "Git"],
-      role: "System Administration",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Linux+Scripts",
+      title: "University Management System",
+      category: "Backend",
+      description: "Console-based CRUD system for student/course records. (Jan 2026)",
+      technologies: ["Java", "Hibernate", "Maven", "MySQL"],
+      role: "Backend Development",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=University+Management",
       link: "#"
     },
     {
       id: 4,
-      title: "Mobile Learning Companion",
-      category: "Mobile Apps",
-      description: "Cross-platform mobile app for accessing educational content and tracking learning progress on-the-go.",
-      technologies: ["React Native", "Expo", "Firebase"],
-      role: "Mobile Development",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Mobile+App",
+      title: "Hospital Management System (SQL)",
+      category: "Other",
+      description: "Views, triggers, procedures, functions for patient/staff data; automated inventory updates. (Dec 2025)",
+      technologies: ["SQL", "MySQL"],
+      role: "Database Development",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Hospital+Management",
       link: "#"
     },
     {
       id: 5,
-      title: "Portfolio Website",
-      category: "Web Development",
-      description: "Modern, responsive portfolio website showcasing projects and skills with smooth animations and dark theme.",
-      technologies: ["React", "Tailwind CSS", "Framer Motion"],
-      role: "Frontend Development",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Portfolio",
+      title: "GN QuickCheck",
+      category: "Other Projects",
+      description: "Designed platform for accessibility and efficiency of Grama Niladhari services. (Group Mini Project, Oct 2025)",
+      technologies: ["Figma", "UX/HCI Methods"],
+      role: "UX/UI Design",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=GN+QuickCheck",
       link: "#"
     },
     {
       id: 6,
-      title: "Code Review Tool",
+      title: "Citizen Complaint Management System (CCMS)",
       category: "Other Projects",
-      description: "Automated code review tool that analyzes code quality, security vulnerabilities, and best practices.",
-      technologies: ["Python", "Flask", "Docker"],
-      role: "Backend Development",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Code+Review",
+      description: "Authored IEEE-standard SRS with secure authentication and role-based workflows. (Jul 2025)",
+      technologies: ["Software Requirements"],
+      role: "Requirements Engineering",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=CCMS",
+      link: "#"
+    },
+    {
+      id: 7,
+      title: "Data Analysis & Programming Lab (Python)",
+      category: "Other Projects",
+      description: "Data cleaning, visualization, structured programming for insights. (Jun 2025)",
+      technologies: ["Jupyter Notebook", "Pandas", "NumPy", "Matplotlib"],
+      role: "Data Analysis",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Data+Analysis",
+      link: "#"
+    },
+    {
+      id: 8,
+      title: "Amazing Colombo & Visit Colombo (QA Project)",
+      category: "Other Projects",
+      description: "QA test plans, manual test cases, load/performance/stress testing with Apache JMeter. (Jun 2025)",
+      technologies: ["Apache JMeter", "QA Tools"],
+      role: "Quality Assurance",
+      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=QA+Project",
       link: "#"
     }
   ];
 
-  const filters = ["All Projects", "Web Development", "Mobile Apps", "Other Projects"];
+  const filters = ["All Projects", "Software Development", "Other Projects"];
 
   const filteredProjects = activeFilter === "All Projects"
     ? projects
+    : activeFilter === "Software Development"
+    ? projects.filter(project => ["Fullstack", "Frontend", "Backend", "Other"].includes(project.category))
     : projects.filter(project => project.category === activeFilter);
 
   const [activeSkillTab, setActiveSkillTab] = useState("Frontend");
@@ -175,7 +197,7 @@ export default function App() {
           >
             <h1>Empowering Growth Through Innovative Software Solutions</h1>
             <p className="subtext">
-              Motivated undergraduate software engineering student with hands-on experience in web development and learning management systems. Skilled in building practical software projects and collaborative solutions. Eager to apply technical skills to create impactful digital experiences.
+              Motivated undergraduate Software Engineering student seeking a Software Engineering internship. Strong foundation in programming and web technologies, with hands-on experience in learning management systems and collaborative project work. Eager to apply technical skills and contribute to real-world software solutions.
             </p>
             <div className="hero-buttons">
               <a href="#projects" className="primary-btn">View My Work</a>
