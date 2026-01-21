@@ -248,7 +248,7 @@ export default function App() {
             <a href="#certificates">Certificates</a>
             <a href="#contact">Contact</a>
           </div>
-          <button className="cta-button">Get Started</button>
+          <a href="/Sanduni Fernando CV.pdf" download className="cta-button">Download My CV</a>
         </div>
       </nav>
 
@@ -287,7 +287,7 @@ export default function App() {
               <div className="badge badge2">Quick Learner</div>
               <div className="badge badge3">8+ Academic Projects</div>
             </div>
-            <div className="chat-icon">💬</div>
+            <a href="#contact" className="chat-icon">💬</a>
           </motion.div>
         </div>
         {/* Subtle grid background */}
@@ -580,7 +580,7 @@ export default function App() {
             {
               date: "2009 – 2014",
               title: "Primary Education",
-              description: "Princess of Wals' College, Moratuwa"
+              description: "Princess of Wales' College, Moratuwa"
             }
           ].map((item, index) => (
             <motion.div
