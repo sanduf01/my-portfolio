@@ -283,9 +283,9 @@ export default function App() {
           >
             <div className="image-card">
               <img src="my_p.png" alt="Sanduni Fernando" className="portrait" />
-              <div className="badge badge1">5+ Years Experience</div>
-              <div className="badge badge2">100+ Projects</div>
-              <div className="badge badge3">Certified Expert</div>
+              <div className="badge badge1">Third Year Undergrad</div>
+              <div className="badge badge2">Quick Learner</div>
+              <div className="badge badge3">8+ Academic Projects</div>
             </div>
             <div className="chat-icon">💬</div>
           </motion.div>
