@@ -67,7 +67,7 @@ export default function App() {
       technologies: ["React", "Node.js", "Express", "MongoDB", "JWT", "Bootstrap"],
       role: "Full-Stack Development",
       image: "/projects/SmartOLICT.png",
-      link: "#"
+      link: ""
     },
     {
       id: 2,
@@ -87,7 +87,7 @@ export default function App() {
       technologies: ["Java", "Hibernate", "Maven", "MySQL"],
       role: "Backend Development",
       image: "/projects/UMS.png",
-      link: "#"
+      link: ""
     },
     {
       id: 4,
@@ -97,7 +97,7 @@ export default function App() {
       technologies: ["SQL", "MySQL"],
       role: "Database Development",
       image: "/projects/HMS.png",
-      link: "#"
+      link: ""
     },
     {
       id: 5,
@@ -544,6 +544,8 @@ export default function App() {
                 {/* Explore Button */}
                 <motion.a
                   href={project.link}
+                  target={project.link.startsWith('http') ? '_blank' : undefined}
+                  rel={project.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black font-semibold rounded-full hover:bg-yellow-500 transition-colors duration-300"
