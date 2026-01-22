@@ -236,19 +236,22 @@ export default function App() {
   return (
     <main className="mx-auto max-w-7xl overflow-x-hidden">
       {/* NAVIGATION */}
-      <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-[10px] z-[1000] py-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
+      <nav className="fixed top-0 left-1/2 transform -translate-x-1/2 max-w-7xl w-full bg-black/90 backdrop-blur-[10px] z-[1000] rounded-b-2xl shadow-lg px-6 py-4">
+        <div className="flex justify-between items-center">
           <div className="text-xl font-bold text-yellow-400">Sanduni Fernando</div>
-          <div className="flex gap-8">
-            <a href="#about" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">About</a>
-            <a href="#skills" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Skills</a>
-            <a href="#experience" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Experience</a>
-            <a href="#projects" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Projects</a>
-            <a href="#education" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Education</a>
-            <a href="#certificates" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Certificates</a>
-            <a href="#contact" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Contact</a>
+          <div className="flex items-center gap-4 md:gap-8">
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#about" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">About</a>
+              <a href="#skills" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Skills</a>
+              <a href="#experience" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Experience</a>
+              <a href="#projects" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Projects</a>
+              <a href="#education" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Education</a>
+              <a href="#certificates" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Certificates</a>
+              <a href="#contact" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Contact</a>
+            </div>
+            <a href="/Sanduni Fernando CV.pdf" download className="bg-yellow-400 text-black px-4 py-2 md:px-6 md:py-2 rounded-full no-underline font-semibold transition-colors duration-300 hover:bg-yellow-500 text-sm md:text-base">Download My CV</a>
+            <button className="md:hidden text-white text-xl focus:outline-none">☰</button>
           </div>
-          <a href="/Sanduni Fernando CV.pdf" download className="bg-yellow-400 text-black px-6 py-2 rounded-full no-underline font-semibold transition-colors duration-300 hover:bg-yellow-500">Download My CV</a>
         </div>
       </nav>
 
