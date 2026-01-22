@@ -66,7 +66,7 @@ export default function App() {
       description: "Gamified e-learning platform with authentication, quizzes, leaderboards, progress tracking, REST APIs. (Full-Stack Group Project, 2025 – Present)",
       technologies: ["React", "Node.js", "Express", "MongoDB", "JWT", "Bootstrap"],
       role: "Full-Stack Development",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Smart+O/L+ICT",
+      image: "/projects/SmartOLICT.png",
       link: "#"
     },
     {
@@ -76,8 +76,8 @@ export default function App() {
       description: "Responsive portfolio with animations and optimized performance. (Jan 2026)",
       technologies: ["React", "Tailwind CSS"],
       role: "Frontend Development",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Portfolio+Website",
-      link: "#"
+      image: "/projects/Portfolio.png",
+      link: "https://github.com/sanduf01/my-portfolio.git"
     },
     {
       id: 3,
@@ -86,7 +86,7 @@ export default function App() {
       description: "Console-based CRUD system for student/course records. (Jan 2026)",
       technologies: ["Java", "Hibernate", "Maven", "MySQL"],
       role: "Backend Development",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=University+Management",
+      image: "/projects/UMS.png",
       link: "#"
     },
     {
@@ -96,7 +96,7 @@ export default function App() {
       description: "Views, triggers, procedures, functions for patient/staff data; automated inventory updates. (Dec 2025)",
       technologies: ["SQL", "MySQL"],
       role: "Database Development",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Hospital+Management",
+      image: "/projects/HMS.png",
       link: "#"
     },
     {
@@ -106,8 +106,8 @@ export default function App() {
       description: "Designed platform for accessibility and efficiency of Grama Niladhari services. (Group Mini Project, Oct 2025)",
       technologies: ["Figma", "UX/HCI Methods"],
       role: "UX/UI Design",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=GN+QuickCheck",
-      link: "#"
+      image: "/projects/GNQuickCheck.png",
+      link: "https://github.com/sanduf01/GN-QuickCheck.git"
     },
     {
       id: 6,
@@ -116,8 +116,8 @@ export default function App() {
       description: "Authored IEEE-standard SRS with secure authentication and role-based workflows. (Jul 2025)",
       technologies: ["Software Requirements"],
       role: "Requirements Engineering",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=CCMS",
-      link: "#"
+      image: "/projects/CCMS.png",
+      link: "https://github.com/sanduf01/Citizen-Complaint-Management-System-CCMS-.git"
     },
     {
       id: 7,
@@ -126,8 +126,8 @@ export default function App() {
       description: "Data cleaning, visualization, structured programming for insights. (Jun 2025)",
       technologies: ["Jupyter Notebook", "Pandas", "NumPy", "Matplotlib"],
       role: "Data Analysis",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Data+Analysis",
-      link: "#"
+      image: "/projects/Datascience.png",
+      link: "https://github.com/sanduf01/Data-Analysis-Programming-Lab-Python-.git"
     },
     {
       id: 8,
@@ -136,8 +136,8 @@ export default function App() {
       description: "QA test plans, manual test cases, load/performance/stress testing with Apache JMeter. (Jun 2025)",
       technologies: ["Apache JMeter", "QA Tools"],
       role: "Quality Assurance",
-      image: "https://via.placeholder.com/400x250/1a1a1a/ffffff?text=QA+Project",
-      link: "#"
+      image: "/projects/AmazingC.png",
+      link: "https://github.com/sanduf01/Amazing-Colombo-Visit-Colombo-QA-Project-.git"
     }
   ];
 
