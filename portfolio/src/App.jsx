@@ -286,9 +286,11 @@ export default function App() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl flex justify-center items-center">
               <img src="mypng.png" alt="Sanduni Fernando" className="w-auto h-64 lg:h-80 object-cover" />
-              <div className="absolute top-1/4 left-0 bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">Third Year Undergrad</div>
-              <div className="absolute top-1/2 right-0 bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">Quick Learner</div>
-              <div className="absolute bottom-1/4 left-0 bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">8+ Academic Projects</div>
+            </div>
+            <div className="flex gap-4 mt-4">
+              <div className="bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">Third Year Undergrad</div>
+              <div className="bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">Quick Learner</div>
+              <div className="bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">8+ Academic Projects</div>
             </div>
             <a href="#contact" className="absolute -bottom-6 -right-6 bg-yellow-400 text-black w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-transform duration-300 hover:scale-110">💬</a>
           </motion.div>
