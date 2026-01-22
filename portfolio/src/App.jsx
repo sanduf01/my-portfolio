@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import Typed from "typed.js";
 import {
   FaReact,
   FaNodeJs,
@@ -38,6 +39,24 @@ import {
 
 export default function App() {
   const [activeFilter, setActiveFilter] = useState("All Projects");
+
+  const typedRef = useRef(null);
+
+  useEffect(() => {
+    const typed = new Typed(typedRef.current, {
+      strings: [
+        "Software Engineering Undergraduate",
+        "Frontend Developer",
+        "Backend Developer"
+      ],
+      typeSpeed: 60,
+      backSpeed: 40,
+      backDelay: 1500,
+      loop: true,
+    });
+
+    return () => typed.destroy();
+  }, []);
 
   const projects = [
     {
@@ -265,9 +284,6 @@ export default function App() {
             className="flex-1 text-left"
           >
             <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Empowering Growth Through Innovative Software Solutions</h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Motivated undergraduate Software Engineering student seeking a Software Engineering internship. Strong foundation in programming and web technologies, with hands-on experience in learning management systems and collaborative project work. Eager to apply technical skills and contribute to real-world software solutions.
-            </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a href="#projects" className="px-8 py-4 bg-yellow-400 text-black rounded-full font-semibold transition-colors duration-300 hover:bg-yellow-500 no-underline">View My Work</a>
               <a href="#contact" className="px-8 py-4 bg-transparent text-yellow-400 border-2 border-yellow-400 rounded-full font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-black no-underline">Get In Touch</a>
@@ -287,10 +303,10 @@ export default function App() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl flex justify-center items-center">
               <img src="mypng.png" alt="Sanduni Fernando" className="w-auto h-64 lg:h-80 object-cover" />
             </div>
-            <div className="flex gap-4 mt-4">
-              <div className="bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">Third Year Undergrad</div>
-              <div className="bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">Quick Learner</div>
-              <div className="bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">8+ Academic Projects</div>
+            <div className="mt-4">
+              <div className="bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg inline-block">
+                <span ref={typedRef}></span>
+              </div>
             </div>
             <a href="#contact" className="absolute -bottom-6 -right-6 bg-yellow-400 text-black w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-transform duration-300 hover:scale-110">💬</a>
           </motion.div>
@@ -304,12 +320,9 @@ export default function App() {
       {/* ABOUT */}
       <section className="max-w-4xl mx-auto py-24 px-6" id="about">
         <h2 className="text-4xl font-bold text-white mb-6">About Me</h2>
-        <p className="text-gray-300 text-lg leading-relaxed">
-          I am an undergraduate software engineering student with an online
-          internship at LEARN. I have experience assisting IT education,
-          teaching C and Python, and contributing to Free and Open-Source
-          Software and Linux-based learning environments.
-        </p>
+        <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              Motivated undergraduate Software Engineering student seeking a Software Engineering internship. Strong foundation in programming and web technologies, with hands-on experience in learning management systems and collaborative project work. Eager to apply technical skills and contribute to real-world software solutions.
+            </p>
       </section>
 
       {/* SKILLS */}
