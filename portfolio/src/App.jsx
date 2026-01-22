@@ -234,72 +234,72 @@ export default function App() {
   const skillTabs = Object.keys(skillsData);
 
   return (
-    <main className="container">
+    <main className="mx-auto max-w-7xl overflow-x-hidden">
       {/* NAVIGATION */}
-      <nav className="nav">
-        <div className="nav-container">
-          <div className="logo">Sanduni Fernando</div>
-          <div className="menu">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#certificates">Certificates</a>
-            <a href="#contact">Contact</a>
+      <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-[10px] z-[1000] py-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
+          <div className="text-xl font-bold text-yellow-400">Sanduni Fernando</div>
+          <div className="flex gap-8">
+            <a href="#about" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">About</a>
+            <a href="#skills" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Skills</a>
+            <a href="#experience" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Experience</a>
+            <a href="#projects" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Projects</a>
+            <a href="#education" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Education</a>
+            <a href="#certificates" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Certificates</a>
+            <a href="#contact" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Contact</a>
           </div>
-          <a href="/Sanduni Fernando CV.pdf" download className="cta-button">Download My CV</a>
+          <a href="/Sanduni Fernando CV.pdf" download className="bg-yellow-400 text-black px-6 py-2 rounded-full no-underline font-semibold transition-colors duration-300 hover:bg-yellow-500">Download My CV</a>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="hero">
-        <div className="hero-container">
+      <section className="relative min-h-screen flex items-center justify-center pt-20">
+        <div className="max-w-7xl w-full bg-white/5 backdrop-blur-2xl rounded-3xl p-12 flex flex-col lg:flex-row gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="hero-left"
+            className="flex-1 text-left"
           >
-            <h1>Empowering Growth Through Innovative Software Solutions</h1>
-            <p className="subtext">
+            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Empowering Growth Through Innovative Software Solutions</h1>
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
               Motivated undergraduate Software Engineering student seeking a Software Engineering internship. Strong foundation in programming and web technologies, with hands-on experience in learning management systems and collaborative project work. Eager to apply technical skills and contribute to real-world software solutions.
             </p>
-            <div className="hero-buttons">
-              <a href="#projects" className="primary-btn">View My Work</a>
-              <a href="#contact" className="secondary-btn">Get In Touch</a>
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <a href="#projects" className="px-8 py-4 bg-yellow-400 text-black rounded-full font-semibold transition-colors duration-300 hover:bg-yellow-500 no-underline">View My Work</a>
+              <a href="#contact" className="px-8 py-4 bg-transparent text-yellow-400 border-2 border-yellow-400 rounded-full font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-black no-underline">Get In Touch</a>
             </div>
-            <div className="logos">
-              <img src="https://via.placeholder.com/50x30/ffffff/000000?text=Logo1" alt="Partner 1" />
-              <img src="https://via.placeholder.com/50x30/ffffff/000000?text=Logo2" alt="Partner 2" />
-              <img src="https://via.placeholder.com/50x30/ffffff/000000?text=Logo3" alt="Partner 3" />
+            <div className="flex gap-4 opacity-70">
+              <img src="https://via.placeholder.com/50x30/ffffff/000000?text=Logo1" alt="Partner 1" className="h-8 filter grayscale" />
+              <img src="https://via.placeholder.com/50x30/ffffff/000000?text=Logo2" alt="Partner 2" className="h-8 filter grayscale" />
+              <img src="https://via.placeholder.com/50x30/ffffff/000000?text=Logo3" alt="Partner 3" className="h-8 filter grayscale" />
             </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-right"
+            className="flex-1 relative"
           >
-            <div className="image-card">
-              <img src="my_p.png" alt="Sanduni Fernando" className="portrait" />
-              <div className="badge badge1">Third Year Undergrad</div>
-              <div className="badge badge2">Quick Learner</div>
-              <div className="badge badge3">8+ Academic Projects</div>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl flex justify-center items-center">
+              <img src="my_p.png" alt="Sanduni Fernando" className="w-auto h-96 lg:h-[550px] object-cover" />
+              <div className="absolute top-1/4 left-0 bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">Third Year Undergrad</div>
+              <div className="absolute top-1/2 right-0 bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">Quick Learner</div>
+              <div className="absolute bottom-1/4 left-0 bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">8+ Academic Projects</div>
             </div>
-            <a href="#contact" className="chat-icon">💬</a>
+            <a href="#contact" className="absolute -bottom-6 -right-6 bg-yellow-400 text-black w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-transform duration-300 hover:scale-110">💬</a>
           </motion.div>
         </div>
         {/* Subtle grid background */}
-        <div className="grid-bg" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:20px_20px] opacity-30 -z-20" />
         {/* Subtle animated gradient */}
-        <div className="gradient-bg" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,#facc15,transparent_60%)] opacity-15 animate-pulse -z-10" />
       </section>
 
       {/* ABOUT */}
-      <section className="section" id="about">
-        <h2>About Me</h2>
-        <p>
+      <section className="max-w-4xl mx-auto py-24 px-6" id="about">
+        <h2 className="text-4xl font-bold text-white mb-6">About Me</h2>
+        <p className="text-gray-300 text-lg leading-relaxed">
           I am an undergraduate software engineering student with an online
           internship at LEARN. I have experience assisting IT education,
           teaching C and Python, and contributing to Free and Open-Source
@@ -308,12 +308,13 @@ export default function App() {
       </section>
 
       {/* SKILLS */}
-      <section className="section" id="skills">
+      <section className="max-w-4xl mx-auto py-24 px-6" id="skills">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="text-4xl font-bold text-white mb-6"
         >
           Skills
         </motion.h2>
@@ -332,7 +333,7 @@ export default function App() {
               onClick={() => setActiveSkillTab(tab)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeSkillTab === tab
-                  ? "bg-yellowBrand text-black shadow-lg shadow-yellowBrand/25"
+                  ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
                   : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
               }`}
             >
@@ -356,17 +357,17 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellowBrand/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellowBrand/10"
+              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellow-400/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellow-400/10"
             >
               {/* Icon */}
               <div className="flex justify-center mb-4">
-                <div className="p-4 bg-yellowBrand/10 rounded-full group-hover:bg-yellowBrand/20 transition-colors duration-300">
-                  <skill.icon className="w-8 h-8 text-yellowBrand" />
+                <div className="p-4 bg-yellow-400/10 rounded-full group-hover:bg-yellow-400/20 transition-colors duration-300">
+                  <skill.icon className="w-8 h-8 text-yellow-400" />
                 </div>
               </div>
 
               {/* Skill Name */}
-              <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-yellowBrand transition-colors">
+              <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-yellow-400 transition-colors">
                 {skill.name}
               </h3>
 
@@ -389,19 +390,20 @@ export default function App() {
               )}
 
               {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-yellowBrand/0 via-yellowBrand/5 to-yellowBrand/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/0 via-yellow-400/5 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
             </motion.div>
           ))}
         </motion.div>
       </section>
 
       {/* EXPERIENCE */}
-      <section className="section" id="experience">
+      <section className="max-w-4xl mx-auto py-24 px-6" id="experience">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="text-4xl font-bold text-white mb-6"
         >
           Experience
         </motion.h2>
@@ -411,12 +413,12 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="card group hover:bg-white/10 transition-all duration-300"
+            className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 shadow-xl group hover:bg-white/10 transition-all duration-300"
           >
             <div className="flex justify-between items-start mb-4">
               <div>
-                <h3 className="text-xl font-bold text-white group-hover:text-yellowBrand transition-colors">Intern – Content Creation & Teaching Assistant (Remote)</h3>
-                <p className="text-yellowBrand text-sm font-medium">Lanka Education and Research Network (LEARN), University of Peradeniya</p>
+                <h3 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">Intern – Content Creation & Teaching Assistant (Remote)</h3>
+                <p className="text-yellow-400 text-sm font-medium">Lanka Education and Research Network (LEARN), University of Peradeniya</p>
               </div>
               <span className="text-gray-400 text-sm">March 2024 – August 2024</span>
             </div>
@@ -431,12 +433,13 @@ export default function App() {
       </section>
 
       {/* PROJECTS */}
-      <section className="section" id="projects">
+      <section className="max-w-7xl mx-auto py-24 px-6" id="projects">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="text-4xl font-bold text-white mb-6"
         >
           Featured Projects
         </motion.h2>
@@ -455,7 +458,7 @@ export default function App() {
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeFilter === filter
-                  ? "bg-yellowBrand text-black shadow-lg shadow-yellowBrand/25"
+                  ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
                   : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
               }`}
             >
@@ -478,7 +481,7 @@ export default function App() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
-              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 hover:border-yellowBrand/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellowBrand/10"
+              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 hover:border-yellow-400/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellow-400/10"
             >
               {/* Project Image */}
               <div className="relative overflow-hidden">
@@ -488,7 +491,7 @@ export default function App() {
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-yellowBrand/90 text-black text-xs font-semibold rounded-full backdrop-blur-sm">
+                  <span className="px-3 py-1 bg-yellow-400/90 text-black text-xs font-semibold rounded-full backdrop-blur-sm">
                     {project.category}
                   </span>
                 </div>
@@ -496,7 +499,7 @@ export default function App() {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellowBrand transition-colors">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-gray-300 text-sm mb-4 leading-relaxed">
@@ -516,7 +519,7 @@ export default function App() {
                 </div>
 
                 {/* Role */}
-                <div className="text-yellowBrand text-sm font-medium mb-4">
+                <div className="text-yellow-400 text-sm font-medium mb-4">
                   {project.role}
                 </div>
 
@@ -525,7 +528,7 @@ export default function App() {
                   href={project.link}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-yellowBrand text-black font-semibold rounded-full hover:bg-yellow-400 transition-colors duration-300"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black font-semibold rounded-full hover:bg-yellow-500 transition-colors duration-300"
                 >
                   Explore
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -535,25 +538,26 @@ export default function App() {
               </div>
 
               {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-yellowBrand/0 via-yellowBrand/5 to-yellowBrand/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/0 via-yellow-400/5 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </motion.div>
           ))}
         </motion.div>
       </section>
 
       {/* EDUCATION */}
-      <section className="section" id="education">
+      <section className="max-w-4xl mx-auto py-24 px-6" id="education">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="text-4xl font-bold text-white mb-6"
         >
           Education
         </motion.h2>
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-yellowBrand to-yellowBrand/50"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-yellow-400 to-yellow-400/50"></div>
 
           {/* Timeline Items */}
           {[
@@ -592,13 +596,13 @@ export default function App() {
               className="relative flex items-start mb-12"
             >
               {/* Timeline Node */}
-              <div className="flex-shrink-0 w-16 h-16 bg-yellowBrand rounded-full flex items-center justify-center shadow-lg shadow-yellowBrand/25 z-10">
+              <div className="flex-shrink-0 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg shadow-yellow-400/25 z-10">
                 <FaGraduationCap className="w-6 h-6 text-black" />
               </div>
 
               {/* Content Card */}
               <div className="ml-8 bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 shadow-xl shadow-black/10 flex-1 group hover:bg-white/10 transition-all duration-300">
-                <div className="text-yellowBrand text-sm font-bold mb-2">
+                <div className="text-yellow-400 text-sm font-bold mb-2">
                   {item.date}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">
@@ -614,12 +618,13 @@ export default function App() {
       </section>
 
       {/* CERTIFICATES */}
-      <section className="section" id="certificates">
+      <section className="max-w-4xl mx-auto py-24 px-6" id="certificates">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="text-4xl font-bold text-white mb-6"
         >
           Certificates
         </motion.h2>
@@ -638,7 +643,7 @@ export default function App() {
               onClick={() => setActiveCertTab(tab)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeCertTab === tab
-                  ? "bg-yellowBrand text-black shadow-lg shadow-yellowBrand/25"
+                  ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
                   : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
               }`}
             >
@@ -662,22 +667,22 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellowBrand/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellowBrand/10"
+              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellow-400/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellow-400/10"
             >
               {/* Icon */}
               <div className="flex justify-center mb-4">
-                <div className="p-4 bg-yellowBrand/10 rounded-full group-hover:bg-yellowBrand/20 transition-colors duration-300">
-                  <cert.icon className="w-8 h-8 text-yellowBrand" />
+                <div className="p-4 bg-yellow-400/10 rounded-full group-hover:bg-yellow-400/20 transition-colors duration-300">
+                  <cert.icon className="w-8 h-8 text-yellow-400" />
                 </div>
               </div>
 
               {/* Certificate Title */}
-              <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-yellowBrand transition-colors">
+              <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-yellow-400 transition-colors">
                 {cert.title}
               </h3>
 
               {/* Issuer */}
-              <p className="text-yellowBrand text-sm font-medium text-center mb-2">
+              <p className="text-yellow-400 text-sm font-medium text-center mb-2">
                 {cert.issuer}
               </p>
 
@@ -689,19 +694,20 @@ export default function App() {
               </div>
 
               {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-yellowBrand/0 via-yellowBrand/5 to-yellowBrand/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/0 via-yellow-400/5 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
             </motion.div>
           ))}
         </motion.div>
       </section>
 
       {/* CONTACT */}
-      <section className="section" id="contact">
+      <section className="max-w-7xl mx-auto py-24 px-6" id="contact">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="text-4xl font-bold text-white mb-6"
         >
           Contact
         </motion.h2>
@@ -742,17 +748,17 @@ export default function App() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -8, scale: 1.05 }}
-              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellowBrand/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellowBrand/10 block"
+              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellow-400/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellow-400/10 block"
             >
               {/* Icon */}
               <div className="flex justify-center mb-4">
-                <div className="p-4 bg-yellowBrand/10 rounded-full group-hover:bg-yellowBrand/20 transition-colors duration-300">
-                  <contact.icon className="w-8 h-8 text-yellowBrand" />
+                <div className="p-4 bg-yellow-400/10 rounded-full group-hover:bg-yellow-400/20 transition-colors duration-300">
+                  <contact.icon className="w-8 h-8 text-yellow-400" />
                 </div>
               </div>
 
               {/* Contact Title */}
-              <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-yellowBrand transition-colors">
+              <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-yellow-400 transition-colors">
                 {contact.title}
               </h3>
 
@@ -762,7 +768,7 @@ export default function App() {
               </p>
 
               {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-yellowBrand/0 via-yellowBrand/5 to-yellowBrand/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/0 via-yellow-400/5 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
             </motion.a>
           ))}
         </div>
