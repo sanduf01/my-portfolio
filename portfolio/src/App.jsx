@@ -272,11 +272,11 @@ export default function App() {
               <a href="#projects" className="px-8 py-4 bg-yellow-400 text-black rounded-full font-semibold transition-colors duration-300 hover:bg-yellow-500 no-underline">View My Work</a>
               <a href="#contact" className="px-8 py-4 bg-transparent text-yellow-400 border-2 border-yellow-400 rounded-full font-semibold transition-all duration-300 hover:bg-yellow-400 hover:text-black no-underline">Get In Touch</a>
             </div>
-            <div className="flex gap-4 opacity-70">
+            {/* <div className="flex gap-4 opacity-70">
               <img src="https://via.placeholder.com/50x30/ffffff/000000?text=Logo1" alt="Partner 1" className="h-8 filter grayscale" />
               <img src="https://via.placeholder.com/50x30/ffffff/000000?text=Logo2" alt="Partner 2" className="h-8 filter grayscale" />
               <img src="https://via.placeholder.com/50x30/ffffff/000000?text=Logo3" alt="Partner 3" className="h-8 filter grayscale" />
-            </div>
+            </div> */}
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 40 }}
@@ -285,7 +285,7 @@ export default function App() {
             className="flex-1 relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl flex justify-center items-center">
-              <img src="my_p.png" alt="Sanduni Fernando" className="w-auto h-96 lg:h-[550px] object-cover" />
+              <img src="mypng.png" alt="Sanduni Fernando" className="w-auto h-64 lg:h-80 object-cover" />
               <div className="absolute top-1/4 left-0 bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">Third Year Undergrad</div>
               <div className="absolute top-1/2 right-0 bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">Quick Learner</div>
               <div className="absolute bottom-1/4 left-0 bg-yellow-400/90 text-black px-4 py-2 rounded-2xl font-semibold text-sm shadow-lg">8+ Academic Projects</div>
