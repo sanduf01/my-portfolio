@@ -39,6 +39,7 @@ import {
 
 export default function App() {
   const [activeFilter, setActiveFilter] = useState("All Projects");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const typedRef = useRef(null);
 
@@ -269,10 +270,30 @@ export default function App() {
               <a href="#contact" className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Contact</a>
             </div>
             <a href="/Sanduni Fernando CV.pdf" download className="bg-yellow-400 text-black px-4 py-2 md:px-6 md:py-2 rounded-full no-underline font-semibold transition-colors duration-300 hover:bg-yellow-500 text-sm md:text-base">Download My CV</a>
-            <button className="md:hidden text-white text-xl focus:outline-none">☰</button>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-white text-xl focus:outline-none"
+            >
+              ☰
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* MOBILE MENU */}
+      {isMobileMenuOpen && (
+        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 max-w-7xl w-full bg-black/95 backdrop-blur-[10px] z-[999] rounded-b-2xl shadow-lg px-6 py-4 md:hidden">
+          <div className="flex flex-col gap-4">
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">About</a>
+            <a href="#skills" onClick={() => setIsMobileMenuOpen(false)} className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Skills</a>
+            <a href="#experience" onClick={() => setIsMobileMenuOpen(false)} className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Experience</a>
+            <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Projects</a>
+            <a href="#education" onClick={() => setIsMobileMenuOpen(false)} className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Education</a>
+            <a href="#certificates" onClick={() => setIsMobileMenuOpen(false)} className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Certificates</a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-white no-underline transition-colors duration-300 hover:text-yellow-400">Contact</a>
+          </div>
+        </div>
+      )}
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center pt-20">
