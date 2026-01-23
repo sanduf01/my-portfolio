@@ -815,6 +815,65 @@ export default function App() {
         </div>
       </section>
 
+      {/* FOOTER */}
+      <footer className="bg-black/90 backdrop-blur-[10px] border-t border-white/10 mt-24">
+        <div className="w-full px-6 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            {/* Copyright */}
+            <div className="text-center md:text-left">
+              <p className="text-gray-300 text-sm">
+                © {new Date().getFullYear()} Sanduni Fernando. All rights reserved.
+              </p>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-6">
+              <a
+                href="https://github.com/sanduf01"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-yellow-400 transition-colors duration-300"
+                aria-label="GitHub"
+              >
+                <FaGithub className="w-6 h-6" />
+              </a>
+              <a
+                href="https://linkedin.com/in/sanduf01"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-yellow-400 transition-colors duration-300"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+              <a
+                href="https://sanduf01.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-yellow-400 transition-colors duration-300"
+                aria-label="Portfolio"
+              >
+                <FaGlobe className="w-6 h-6" />
+              </a>
+            </div>
+
+            {/* Back to Top */}
+            <div className="text-center md:text-right">
+              <a
+                href="#"
+                className="text-yellow-400 hover:text-yellow-500 transition-colors duration-300 text-sm font-medium"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                Back to Top ↑
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
     </main>
   );
 }
