@@ -51,11 +51,6 @@ npm run build  # Outputs to dist/
 npm run preview  # Local preview of build
 ```
 
-Deploy to:
-- [Vercel](https://vercel.com) (recommended)
-- [Netlify](https://netlify.com)
-- [GitHub Pages](https://pages.github.com)
-
 ## 📂 Structure
 ```
 my-portfolio/
