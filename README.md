@@ -6,12 +6,7 @@
 [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.26.2-orange?style=for-the-badge&logo=framer)](https://framer.com/motion/)
 
 ## ✨ Live Demo
-[Sneak peek live site](https://sanduf01.vercel.app)
-
-<div align=\"center\">
-  <img src=\"https://raw.githubusercontent.com/sanduf01/my-portfolio/main/portfolio/public/mypng.png\" alt=\"Portfolio Preview\" width=\"400\"/>
-  <p><em>Modern, responsive portfolio showcasing skills, projects, and experience</em></p>
-</div>
+[Live site](https://sanduf01.vercel.app)
 
 ## 🚀 Features
 - 🎨 **Smooth Animations** - Framer Motion for engaging transitions
@@ -55,11 +50,6 @@ cd portfolio
 npm run build  # Outputs to dist/
 npm run preview  # Local preview of build
 ```
-
-Deploy to:
-- [Vercel](https://vercel.com) (recommended)
-- [Netlify](https://netlify.com)
-- [GitHub Pages](https://pages.github.com)
 
 ## 📂 Structure
 ```
