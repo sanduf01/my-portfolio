@@ -88,7 +88,7 @@ export default function App() {
       technologies: ["Java", "Hibernate", "Maven", "MySQL"],
       role: "Backend Development",
       image: "/projects/UMS.png",
-      link: ""
+      link: "https://github.com/sanduf01/University-Management-System?tab=readme-ov-file#-university-management-system"
     },
     {
       id: 4,
