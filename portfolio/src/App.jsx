@@ -78,7 +78,7 @@ export default function App() {
       technologies: ["React", "Tailwind CSS"],
       role: "Frontend Development",
       image: "/projects/Portfolio.png",
-      link: "https://github.com/sanduf01/my-portfolio.git"
+      link: "https://github.com/sanduf01/my-portfolio/tree/main?tab=readme-ov-file#-sanduni-fernando---software-engineering-portfolio"
     },
     {
       id: 3,
