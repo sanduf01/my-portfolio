@@ -98,7 +98,7 @@ export default function App() {
       technologies: ["SQL", "MySQL"],
       role: "Database Development",
       image: "/projects/HMS.png",
-      link: ""
+      link: "https://github.com/sanduf01/Hospital-Management-System-SQL-?tab=readme-ov-file#hospital-management-system---sql-database"
     },
     {
       id: 5,
