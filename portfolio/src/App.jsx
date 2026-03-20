@@ -68,7 +68,7 @@ export default function App() {
       technologies: ["React", "Node.js", "Express", "MongoDB", "JWT", "Bootstrap"],
       role: "Full-Stack Development",
       image: "/projects/SmartOLICT.png",
-      link: ""
+      link: "https://github.com/sanduf01/SmartOLICT?tab=readme-ov-file#-kvjp_1-smartolict"
     },
     {
       id: 2,
