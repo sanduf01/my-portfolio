@@ -1,32 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Typed from "typed.js";
-import ProjectDetails from "./ProjectDetails";
-
-// Scroll to hash component
-function ScrollToHash() {
-  const location = useLocation();
-  
-  useEffect(() => {
-    // Only scroll if there's a hash in the URL
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        // Small delay to ensure the page has rendered
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-      }
-    } else {
-      // If no hash, scroll to top of page
-      window.scrollTo(0, 0);
-    }
-  }, [location]);
-  
-  return null;
-}
 import {
   FaReact,
   FaNodeJs,
@@ -280,11 +254,7 @@ export default function App() {
   const skillTabs = Object.keys(skillsData);
 
   return (
-    <Router>
-      <ScrollToHash />
-      <Routes>
-        <Route path="/" element={
-          <main className="mx-auto max-w-7xl overflow-x-hidden">
+    <main className="mx-auto max-w-7xl overflow-x-hidden">
       {/* NAVIGATION */}
       <nav className="fixed top-0 left-1/2 transform -translate-x-1/2 max-w-7xl w-full bg-black/90 backdrop-blur-[10px] z-[1000] rounded-b-2xl shadow-lg px-6 py-4">
         <div className="flex justify-between items-center">
@@ -593,15 +563,19 @@ export default function App() {
                 </div>
 
                 {/* Explore Button */}
-                <Link
-                  to={`/project/${project.id}`}
+                <motion.a
+                  href={project.link}
+                  target={project.link.startsWith('http') ? '_blank' : undefined}
+                  rel={project.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black font-semibold rounded-full hover:bg-yellow-500 transition-colors duration-300"
                 >
                   Explore
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </Link>
+                </motion.a>
               </div>
 
               {/* Hover Glow Effect */}
@@ -901,9 +875,5 @@ export default function App() {
       </footer>
 
     </main>
-        } />
-        <Route path="/project/:id" element={<ProjectDetails />} />
-      </Routes>
-    </Router>
   );
 }
