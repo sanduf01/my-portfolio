@@ -903,6 +903,41 @@ const certificatesData = {
         </motion.div>
       </section>
 
+      {/* Certificate Modal */}
+      {selectedCert && (
+        <>
+          <div 
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[10000] flex items-center justify-center p-4"
+            onClick={() => setSelectedCert(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative max-w-4xl max-h-[90vh] w-full flex flex-col bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl max-md:p-4 md:p-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="absolute -top-4 -right-4 bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-xl hover:bg-yellow-500 transition-all z-10"
+              >
+                ×
+              </button>
+
+              {/* Certificate Image */}
+              <div className="flex-1 flex items-center justify-center">
+                <img 
+                  src={selectedCert.image} 
+                  alt={selectedCert.title}
+                  className="w-[90vw] max-w-[800px] h-[70vh] max-h-[600px] object-contain shadow-2xl rounded-xl cursor-zoom-in hover:scale-105 transition-transform duration-200 mx-auto"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </>
+      )}
+
       {/* CONTACT */}
       <section className="max-w-7xl mx-auto py-24 px-6" id="contact">
         <motion.h2
@@ -1096,41 +1131,6 @@ const certificatesData = {
           </div>
         </div>
       </footer>
-
-      {/* Certificate Modal */}
-      {selectedCert && (
-        <>
-          <div 
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[10000] flex items-center justify-center p-4"
-            onClick={() => setSelectedCert(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="relative max-w-4xl max-h-[90vh] w-full flex flex-col bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl max-md:p-4 md:p-8"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedCert(null)}
-                className="absolute -top-4 -right-4 bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-xl hover:bg-yellow-500 transition-all z-10"
-              >
-                ×
-              </button>
-
-              {/* Certificate Image */}
-              <div className="flex-1 flex items-center justify-center">
-                <img 
-                  src={selectedCert.image} 
-                  alt={selectedCert.title}
-                  className="w-[90vw] max-w-[800px] h-[70vh] max-h-[600px] object-contain shadow-2xl rounded-xl cursor-zoom-in hover:scale-105 transition-transform duration-200 mx-auto"
-                />
-              </div>
-            </motion.div>
-          </div>
-        </>
-      )}
 
     </main>
   );
