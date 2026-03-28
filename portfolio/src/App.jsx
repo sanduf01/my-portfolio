@@ -474,10 +474,6 @@ export default function App() {
             <a href="#contact" className="absolute -bottom-6 -right-6 bg-yellow-400 text-black w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-transform duration-300 hover:scale-110">💬</a>
           </motion.div>
         </div>
-        {/* Subtle grid background */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:20px_20px] opacity-30 -z-20" />
-        {/* Subtle animated gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,#facc15,transparent_60%)] opacity-15 animate-pulse -z-10" />
       </section>
 
       {/* ABOUT */}
