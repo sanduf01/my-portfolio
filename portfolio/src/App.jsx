@@ -209,9 +209,33 @@ export default function App() {
         icon: FaCodeBranch
       },
       {
-        title: "Codeless Test Automation",
+        title: "Web Element Locator Strategies",
         issuer: "Test Automation University",
-        date: "2025",
+        date: "April 2025",
+        icon: FaTools
+      },
+      {
+        title: "Codeless Test Automation with Selenium IDE",
+        issuer: "Test Automation University",
+        date: "April 2025",
+        icon: FaTools
+      },
+      {
+        title: "API Test Automation with Postman",
+        issuer: "Test Automation University",
+        date: "May 2025",
+        icon: FaTools
+      },
+      {
+        title: "Setting a Foundation for Successful Test Automation",
+        issuer: "Test Automation University",
+        date: "May 2025",
+        icon: FaTools
+      },
+      {
+        title: "The Whole Team Approach to Continuous Testing",
+        issuer: "Test Automation University",
+        date: "May 2025",
         icon: FaTools
       }
     ],
