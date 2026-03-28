@@ -43,6 +43,23 @@ export default function App() {
 
   const typedRef = useRef(null);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    alert("Message sent!");
+  };
+
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
       strings: [
@@ -147,8 +164,8 @@ export default function App() {
   const filteredProjects = activeFilter === "All Projects"
     ? projects
     : activeFilter === "Software Development"
-    ? projects.filter(project => ["Fullstack", "Frontend", "Backend", "Other"].includes(project.category))
-    : projects.filter(project => project.category === activeFilter);
+      ? projects.filter(project => ["Fullstack", "Frontend", "Backend", "Other"].includes(project.category))
+      : projects.filter(project => project.category === activeFilter);
 
   const [activeSkillTab, setActiveSkillTab] = useState("Programming");
 
@@ -342,8 +359,8 @@ export default function App() {
       <section className="max-w-4xl mx-auto py-24 px-6" id="about">
         <h2 className="text-4xl font-bold text-white mb-6">About Me</h2>
         <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Motivated undergraduate Software Engineering student seeking a Software Engineering internship. Strong foundation in programming and web technologies, with hands-on experience in learning management systems and collaborative project work. Eager to apply technical skills and contribute to real-world software solutions.
-            </p>
+          Motivated undergraduate Software Engineering student seeking a Software Engineering internship. Strong foundation in programming and web technologies, with hands-on experience in learning management systems and collaborative project work. Eager to apply technical skills and contribute to real-world software solutions.
+        </p>
       </section>
 
       {/* SKILLS */}
@@ -370,11 +387,10 @@ export default function App() {
             <button
               key={tab}
               onClick={() => setActiveSkillTab(tab)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                activeSkillTab === tab
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${activeSkillTab === tab
                   ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
                   : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
-              }`}
+                }`}
             >
               {tab}
             </button>
@@ -413,12 +429,11 @@ export default function App() {
               {/* Proficiency or Description */}
               {skill.proficiency ? (
                 <div className="text-center">
-                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                    skill.proficiency === 'Expert' ? 'bg-green-500/20 text-green-400' :
-                    skill.proficiency === 'Advanced' ? 'bg-blue-500/20 text-blue-400' :
-                    skill.proficiency === 'Intermediate' ? 'bg-yellow-500/20 text-yellow-400' :
-                    'bg-gray-500/20 text-gray-400'
-                  }`}>
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${skill.proficiency === 'Expert' ? 'bg-green-500/20 text-green-400' :
+                      skill.proficiency === 'Advanced' ? 'bg-blue-500/20 text-blue-400' :
+                        skill.proficiency === 'Intermediate' ? 'bg-yellow-500/20 text-yellow-400' :
+                          'bg-gray-500/20 text-gray-400'
+                    }`}>
                     {skill.proficiency}
                   </span>
                 </div>
@@ -495,11 +510,10 @@ export default function App() {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                activeFilter === filter
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${activeFilter === filter
                   ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
                   : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
-              }`}
+                }`}
             >
               {filter}
             </button>
@@ -682,11 +696,10 @@ export default function App() {
             <button
               key={tab}
               onClick={() => setActiveCertTab(tab)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                activeCertTab === tab
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${activeCertTab === tab
                   ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
                   : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
-              }`}
+                }`}
             >
               {tab}
             </button>
@@ -752,14 +765,59 @@ export default function App() {
         >
           Contact
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-xl mx-auto bg-white/5 backdrop-blur-lg m-6 p-8 rounded-2xl border border-white/10 shadow-lg">
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            Send Me an Email
+          </h2>
+          <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Name */}
+            <div>
+              <label className="block text-gray-300 mb-2">Your Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-yellow-400"
+              />
+            </div>
+            {/* Email */}
+            <div>
+              <label className="block text-gray-300 mb-2">Your Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-yellow-400"
+              />
+            </div>
+            {/* Message */}
+            <div>
+              <label className="block text-gray-300 mb-2">Message</label>
+              <textarea
+                name="message"
+                rows="4"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-yellow-400"
+              ></textarea>
+            </div>
+
+            {/* Button */}
+            <button
+              type="submit"
+              className="w-full py-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 transition"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            {
-              title: "Email",
-              value: "sandusanf01@gmail.com",
-              icon: FaEnvelope,
-              link: "mailto:sandusanf01@gmail.com"
-            },
             {
               title: "Portfolio",
               value: "sanduf01.vercel.app",
