@@ -195,8 +195,9 @@ export default function App() {
   const [activeSkillTab, setActiveSkillTab] = useState("Programming");
 
   const [activeCertTab, setActiveCertTab] = useState("Programming");
+  const [selectedCert, setSelectedCert] = useState(null);
 
-  const certificatesData = {
+const certificatesData = {
     Programming: [],
     "Web Technologies": [],
     Databases: [],
@@ -206,37 +207,50 @@ export default function App() {
         title: "Networking Essentials",
         issuer: "Cisco Networking Academy",
         date: "Jan 2025",
-        icon: FaCodeBranch
+        icon: FaCodeBranch,
+        image: "/certificates/Networking Essentials.jpg"
+      },
+      {
+        title: "Exploring Networking with Cisco Packet Tracer",
+        issuer: "Cisco Networking Academy",
+        date: "Jan 2025",
+        icon: FaCodeBranch,
+        image: "/certificates/Exploring Networking with Cisco Packet Tracer.jpg"
       },
       {
         title: "Web Element Locator Strategies",
         issuer: "Test Automation University",
         date: "April 2025",
-        icon: FaTools
+        icon: FaTools,
+        image: "/certificates/Web Element Locator Strategies.png"
       },
       {
         title: "Codeless Test Automation with Selenium IDE",
         issuer: "Test Automation University",
         date: "April 2025",
-        icon: FaTools
+        icon: FaTools,
+        image: "/certificates/Codeless Test Automation with Selenium IDE.png"
       },
       {
         title: "API Test Automation with Postman",
         issuer: "Test Automation University",
         date: "May 2025",
-        icon: FaTools
+        icon: FaTools,
+        image: "/certificates/API Test Automation with Postman.png"
       },
       {
         title: "Setting a Foundation for Successful Test Automation",
         issuer: "Test Automation University",
         date: "May 2025",
-        icon: FaTools
+        icon: FaTools,
+        image: "/certificates/Setting a Foundation for Successful Test Automation.png"
       },
       {
         title: "The Whole Team Approach to Continuous Testing",
         issuer: "Test Automation University",
         date: "May 2025",
-        icon: FaTools
+        icon: FaTools,
+        image: "/certificates/The Whole Team Approach to Continuous Testing.png"
       }
     ],
     Concepts: [
@@ -770,14 +784,25 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellow-400/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellow-400/10"
+              className="group relative bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-yellow-400/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-yellow-400/10 cursor-pointer"
+              onClick={() => cert.image && setSelectedCert(cert)}
             >
-              {/* Icon */}
-              <div className="flex justify-center mb-4">
-                <div className="p-4 bg-yellow-400/10 rounded-full group-hover:bg-yellow-400/20 transition-colors duration-300">
-                  <cert.icon className="w-8 h-8 text-yellow-400" />
+              {/* Thumbnail Image */}
+              {cert.image ? (
+                <div className="w-full h-32 md:h-40 bg-gradient-to-br from-yellow-400/10 to-yellow-400/5 rounded-xl mb-4 overflow-hidden group-hover:scale-[1.02] transition-transform duration-300">
+                  <img 
+                    src={cert.image} 
+                    alt={cert.title}
+                    className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300"
+                  />
                 </div>
-              </div>
+              ) : (
+                <div className="flex justify-center mb-4">
+                  <div className="p-6 bg-yellow-400/10 rounded-xl">
+                    <cert.icon className="w-12 h-12 text-yellow-400" />
+                  </div>
+                </div>
+              )}
 
               {/* Certificate Title */}
               <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-yellow-400 transition-colors">
@@ -795,6 +820,19 @@ export default function App() {
                   {cert.date}
                 </span>
               </div>
+
+              {/* View Certificate Button Overlay */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              >
+                <div className="text-center w-full">
+                  <span className="inline-block bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold text-sm shadow-lg">
+                    👁️ View Certificate
+                  </span>
+                </div>
+              </motion.div>
 
               {/* Hover Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/0 via-yellow-400/5 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
@@ -996,6 +1034,50 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Certificate Modal */}
+      {selectedCert && (
+        <>
+          <div 
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[10000] flex items-center justify-center p-4"
+            onClick={() => setSelectedCert(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative max-w-4xl max-h-[90vh] w-full flex flex-col bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl max-md:p-4 md:p-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="absolute -top-4 -right-4 bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-xl hover:bg-yellow-500 transition-all z-10"
+              >
+                ×
+              </button>
+
+              {/* Certificate Image */}
+              <div className="flex-1 flex items-center justify-center overflow-hidden rounded-2xl mb-6">
+                <img 
+                  src={selectedCert.image} 
+                  alt={selectedCert.title}
+                  className="max-w-full max-h-full object-contain cursor-zoom-in hover:scale-105 transition-transform duration-200"
+                />
+              </div>
+
+              {/* Certificate Details */}
+              <div className="text-center space-y-2">
+                <h3 className="text-2xl md:text-3xl font-bold text-white">{selectedCert.title}</h3>
+                <p className="text-yellow-400 text-lg font-medium">{selectedCert.issuer}</p>
+                <span className="inline-block px-4 py-1 bg-yellow-400/20 text-yellow-200 rounded-full text-sm border border-yellow-400/30">
+                  {selectedCert.date}
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </>
+      )}
 
     </main>
   );
