@@ -40,7 +40,7 @@ import {
 export default function App() {
   const [activeFilter, setActiveFilter] = useState("All Projects");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const [submitStatus, setSubmitStatus] = useState('');
   const typedRef = useRef(null);
 
   const [formData, setFormData] = useState({
@@ -54,10 +54,35 @@ export default function App() {
       [e.target.name]: e.target.value
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert("Message sent!");
+    setSubmitStatus('');
+    
+    if (!formData.name || !formData.email || !formData.message.trim()) {
+      setSubmitStatus('Please fill all fields properly.');
+      return;
+    }
+
+    try {
+      setSubmitStatus('Sending...');
+      const form = e.target;
+      const response = await fetch('https://formspree.io/f/mdapapdy', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setFormData({ name: '', email: '', message: '' });
+        setSubmitStatus('Message sent successfully!');
+      } else {
+        throw new Error('Submit failed');
+      }
+    } catch (error) {
+      setSubmitStatus('Failed to send. Please try again.');
+    }
   };
 
   useEffect(() => {
@@ -769,7 +794,12 @@ export default function App() {
           <h2 className="text-2xl font-bold text-white mb-6 text-center">
             Send Me an Email
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form 
+            action="https://formspree.io/f/mdapapdy"
+            method="POST" 
+            onSubmit={handleSubmit} 
+            className="space-y-5"
+          >
             {/* Name */}
             <div>
               <label className="block text-gray-300 mb-2">Your Name</label>
@@ -807,12 +837,23 @@ export default function App() {
               ></textarea>
             </div>
 
+            {submitStatus && (
+              <div className={`p-4 rounded-xl font-medium text-center mb-4 ${
+                submitStatus.includes('Message sent successfully!') 
+                  ? 'bg-green-500/20 text-green-300 border-2 border-green-400/50' 
+                  : 'bg-red-500/20 text-red-300 border-2 border-red-400/50'
+              }`}>
+                {submitStatus}
+              </div>
+            )}
+
             {/* Button */}
             <button
               type="submit"
-              className="w-full py-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 transition"
+              disabled={submitStatus === 'Sending...'}
+              className="w-full py-3 bg-yellow-400 text-black font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:bg-yellow-300"
             >
-              Send Message
+              {submitStatus === 'Sending...' ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
