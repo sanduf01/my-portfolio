@@ -205,6 +205,34 @@ const certificatesData = {
         date: "April 2023",
         icon: FaCodeBranch,
         image: "/certificates/Python Programming.jpg"
+      },
+      {
+        title: "Python Intermediate",
+        issuer: "Sololearn",
+        date: "April 2024",
+        icon: FaCodeBranch,
+        image: "/certificates/Python Intermediate.png"
+      },
+      {
+        title: "Java Intermediate",
+        issuer: "Sololearn",
+        date: "November 2024",
+        icon: FaCodeBranch,
+        image: "/certificates/Java Intermediate.png"
+      },
+      {
+        title: "Introduction to JavaScript",
+        issuer: "Sololearn",
+        date: "April 2024",
+        icon: FaCodeBranch,
+        image: "/certificates/Introduction to JavaScript.png"
+      },
+      {
+        title: "Introduction to C",
+        issuer: "Sololearn",
+        date: "March 2024",
+        icon: FaCodeBranch,
+        image: "/certificates/Introduction to C.png"
       }
     ],
     "Frontend Development": [
@@ -232,7 +260,15 @@ const certificatesData = {
         image: "/certificates/Server-side Web Programming.jpg"
       }
     ],
-    "Databases": [],
+    "Databases": [
+      {
+        title: "Introduction to SQL",
+        issuer: "Sololearn",
+        date: "April 2024",
+        icon: FaCodeBranch,
+        image: "/certificates/Introduction to SQL.png"
+      }
+    ],
     "Networking": [
       {
         title: "Networking Essentials",
@@ -292,14 +328,14 @@ const certificatesData = {
         issuer: "Google",
         date: "Nov 2025",
         icon: FaBrain,
-        image: "/certificates/Google AI Essentials.png"
+        image: "/certificates/Google AI Essentials.jpg"
       },
       {
         title: "Intro to Machine Learning",
         issuer: "Kaggle",
         date: "Jun 2025",
         icon: FaBrain,
-        image: "/certificates/Intro to Machine Learning.png"
+        image: "/certificates/Intro to Machine Learning.jpg"
       }
     ],
     
