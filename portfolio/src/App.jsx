@@ -192,17 +192,48 @@ export default function App() {
       ? projects.filter(project => ["Fullstack", "Frontend", "Backend", "Other"].includes(project.category))
       : projects.filter(project => project.category === activeFilter);
 
-  const [activeSkillTab, setActiveSkillTab] = useState("Programming");
+  const [activeSkillTab, setActiveSkillTab] = useState("Languages");
 
-  const [activeCertTab, setActiveCertTab] = useState("Programming");
+  const [activeCertTab, setActiveCertTab] = useState("Languages");
   const [selectedCert, setSelectedCert] = useState(null);
 
 const certificatesData = {
-    Programming: [],
-    "Web Technologies": [],
-    Databases: [],
-    Frameworks: [],
-    "Tools & Platforms": [
+    "Languages": [
+      {
+        title: "Python Programming",
+        issuer: "CODL, University of Moratuwa",
+        date: "April 2023",
+        icon: FaCodeBranch,
+        image: "/certificates/Python Programming.jpg"
+      }
+    ],
+    "Frontend Development": [
+      {
+        title: "Front-End Web Development",
+        issuer: "CODL, University of Moratuwa",
+        date: "May 2023",
+        icon: FaCodeBranch,
+        image: "/certificates/Front-End Web Development.jpg"
+      },
+      {
+        title: "Web Design for Beginners",
+        issuer: "CODL, University of Moratuwa",
+        date: "May 2023",
+        icon: FaCodeBranch,
+        image: "/certificates/Web Design for Beginners.jpg"
+      }
+    ],
+    "Backend Development": [
+      {
+        title: "Server-side Web Programming",
+        issuer: "CODL, University of Moratuwa",
+        date: "June 2023",
+        icon: FaCodeBranch,
+        image: "/certificates/Server-side Web Programming.jpg"
+      }
+    ],
+    "Databases": [],
+    "Networking": [
       {
         title: "Networking Essentials",
         issuer: "Cisco Networking Academy",
@@ -216,7 +247,9 @@ const certificatesData = {
         date: "Jan 2025",
         icon: FaCodeBranch,
         image: "/certificates/Exploring Networking with Cisco Packet Tracer.jpg"
-      },
+      }
+    ],
+    "QA & Testing": [
       {
         title: "Web Element Locator Strategies",
         issuer: "Test Automation University",
@@ -253,34 +286,27 @@ const certificatesData = {
         image: "/certificates/The Whole Team Approach to Continuous Testing.png"
       }
     ],
-    Concepts: [
-      {
-        title: "Online Learning Program",
-        issuer: "CODL, University of Moratuwa",
-        date: "2023",
-        icon: FaGraduationCap
-      }
-    ],
     "AI & ML": [
       {
-        title: "Stay Ahead of the AI Curve",
+        title: "Google AI Essentials",
         issuer: "Google",
         date: "Nov 2025",
-        icon: FaBrain
+        icon: FaBrain,
+        image: "/certificates/Google AI Essentials.png"
       },
       {
         title: "Intro to Machine Learning",
         issuer: "Kaggle",
         date: "Jun 2025",
-        icon: FaBrain
+        icon: FaBrain,
+        image: "/certificates/Intro to Machine Learning.png"
       }
     ],
-    "Operating Systems": [],
-    "Soft Skills": []
+    
   };
 
   const skillsData = {
-    Programming: [
+    Languages: [
       { name: "Python", icon: FaPython, proficiency: "Intermediate" },
       { name: "Java", icon: FaJava, proficiency: "Intermediate" },
       { name: "C", icon: FaCode, proficiency: "Intermediate" }
@@ -1058,7 +1084,7 @@ const certificatesData = {
               </button>
 
               {/* Certificate Image */}
-              <div className="flex-1 flex items-center justify-center overflow-hidden rounded-2xl mb-6">
+              <div className="flex-1 flex items-center justify-center overflow-y-auto rounded-2xl mb-6">
                 <img 
                   src={selectedCert.image} 
                   alt={selectedCert.title}
