@@ -57,7 +57,7 @@ export default function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitStatus('');
-    
+
     if (!formData.name || !formData.email || !formData.message.trim()) {
       setSubmitStatus('Please fill all fields properly.');
       return;
@@ -197,7 +197,7 @@ export default function App() {
   const [activeCertTab, setActiveCertTab] = useState("Languages");
   const [selectedCert, setSelectedCert] = useState(null);
 
-const certificatesData = {
+  const certificatesData = {
     "Languages": [
       {
         title: "Python Programming",
@@ -338,7 +338,7 @@ const certificatesData = {
         image: "/certificates/Intro to Machine Learning.jpg"
       }
     ],
-    
+
   };
 
   const skillsData = {
@@ -513,8 +513,8 @@ const certificatesData = {
               key={tab}
               onClick={() => setActiveSkillTab(tab)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${activeSkillTab === tab
-                  ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
-                  : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
+                ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
+                : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
                 }`}
             >
               {tab}
@@ -555,9 +555,9 @@ const certificatesData = {
               {skill.proficiency ? (
                 <div className="text-center">
                   <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${skill.proficiency === 'Expert' ? 'bg-green-500/20 text-green-400' :
-                      skill.proficiency === 'Advanced' ? 'bg-blue-500/20 text-blue-400' :
-                        skill.proficiency === 'Intermediate' ? 'bg-yellow-500/20 text-yellow-400' :
-                          'bg-gray-500/20 text-gray-400'
+                    skill.proficiency === 'Advanced' ? 'bg-blue-500/20 text-blue-400' :
+                      skill.proficiency === 'Intermediate' ? 'bg-yellow-500/20 text-yellow-400' :
+                        'bg-gray-500/20 text-gray-400'
                     }`}>
                     {skill.proficiency}
                   </span>
@@ -636,8 +636,8 @@ const certificatesData = {
               key={filter}
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${activeFilter === filter
-                  ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
-                  : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
+                ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
+                : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
                 }`}
             >
               {filter}
@@ -822,8 +822,8 @@ const certificatesData = {
               key={tab}
               onClick={() => setActiveCertTab(tab)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${activeCertTab === tab
-                  ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
-                  : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
+                ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/25"
+                : "bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
                 }`}
             >
               {tab}
@@ -852,8 +852,8 @@ const certificatesData = {
               {/* Thumbnail Image */}
               {cert.image ? (
                 <div className="w-full h-32 md:h-40 bg-gradient-to-br from-yellow-400/10 to-yellow-400/5 rounded-xl mb-4 overflow-hidden group-hover:scale-[1.02] transition-transform duration-300">
-                  <img 
-                    src={cert.image} 
+                  <img
+                    src={cert.image}
                     alt={cert.title}
                     className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300"
                   />
@@ -884,7 +884,7 @@ const certificatesData = {
               </div>
 
               {/* View Certificate Button Overlay */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
@@ -906,7 +906,7 @@ const certificatesData = {
       {/* Certificate Modal */}
       {selectedCert && (
         <>
-          <div 
+          <div
             className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[10000] flex items-center justify-center p-4"
             onClick={() => setSelectedCert(null)}
           >
@@ -927,8 +927,8 @@ const certificatesData = {
 
               {/* Certificate Image */}
               <div className="flex-1 flex items-center justify-center">
-                <img 
-                  src={selectedCert.image} 
+                <img
+                  src={selectedCert.image}
                   alt={selectedCert.title}
                   className="w-[90vw] max-w-[800px] h-[70vh] max-h-[600px] object-contain shadow-2xl rounded-xl cursor-zoom-in hover:scale-105 transition-transform duration-200 mx-auto"
                 />
@@ -950,71 +950,78 @@ const certificatesData = {
           Contact
         </motion.h2>
         <div className="max-w-xl mx-auto bg-white/5 backdrop-blur-lg m-6 p-8 rounded-2xl border border-white/10 shadow-lg">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">
-            Send Me an Email
-          </h2>
-          <form 
-            action="https://formspree.io/f/mdapapdy"
-            method="POST" 
-            onSubmit={handleSubmit} 
-            className="space-y-5"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 shadow-xl group hover:bg-white/10 transition-all duration-300"
           >
-            {/* Name */}
-            <div>
-              <label className="block text-gray-300 mb-2">Your Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-yellow-400"
-              />
-            </div>
-            {/* Email */}
-            <div>
-              <label className="block text-gray-300 mb-2">Your Email</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-yellow-400"
-              />
-            </div>
-            {/* Message */}
-            <div>
-              <label className="block text-gray-300 mb-2">Message</label>
-              <textarea
-                name="message"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-yellow-400"
-              ></textarea>
-            </div>
-
-            {submitStatus && (
-              <div className={`p-4 rounded-xl font-medium text-center mb-4 ${
-                submitStatus.includes('Message sent successfully!') 
-                  ? 'bg-green-500/20 text-green-300 border-2 border-green-400/50' 
-                  : 'bg-red-500/20 text-red-300 border-2 border-red-400/50'
-              }`}>
-                {submitStatus}
-              </div>
-            )}
-
-            {/* Button */}
-            <button
-              type="submit"
-              disabled={submitStatus === 'Sending...'}
-              className="w-full py-3 bg-yellow-400 text-black font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:bg-yellow-300"
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+              Send Me an Email
+            </h2>
+            <form
+              action="https://formspree.io/f/mdapapdy"
+              method="POST"
+              onSubmit={handleSubmit}
+              className="space-y-5"
             >
-              {submitStatus === 'Sending...' ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
+              {/* Name */}
+              <div>
+                <label className="block text-gray-300 mb-2">Your Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-yellow-400"
+                />
+              </div>
+              {/* Email */}
+              <div>
+                <label className="block text-gray-300 mb-2">Your Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-yellow-400"
+                />
+              </div>
+              {/* Message */}
+              <div>
+                <label className="block text-gray-300 mb-2">Message</label>
+                <textarea
+                  name="message"
+                  rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-yellow-400"
+                ></textarea>
+              </div>
+
+              {submitStatus && (
+                <div className={`p-4 rounded-xl font-medium text-center mb-4 ${submitStatus.includes('Message sent successfully!')
+                    ? 'bg-green-500/20 text-green-300 border-2 border-green-400/50'
+                    : 'bg-red-500/20 text-red-300 border-2 border-red-400/50'
+                  }`}>
+                  {submitStatus}
+                </div>
+              )}
+
+              {/* Button */}
+              <button
+                type="submit"
+                disabled={submitStatus === 'Sending...'}
+                className="w-full py-3 bg-yellow-400 text-black font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:bg-yellow-300"
+              >
+                {submitStatus === 'Sending...' ? 'Sending...' : 'Send Message'}
+              </button>
+            </form>
+          </motion.div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
