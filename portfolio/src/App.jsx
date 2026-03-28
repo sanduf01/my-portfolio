@@ -1120,21 +1120,12 @@ const certificatesData = {
               </button>
 
               {/* Certificate Image */}
-              <div className="flex-1 flex items-center justify-center overflow-y-auto rounded-2xl mb-6">
+              <div className="flex-1 flex items-center justify-center">
                 <img 
                   src={selectedCert.image} 
                   alt={selectedCert.title}
-                  className="max-w-full max-h-full object-contain cursor-zoom-in hover:scale-105 transition-transform duration-200"
+                  className="w-[90vw] max-w-[800px] h-[70vh] max-h-[600px] object-contain shadow-2xl rounded-xl cursor-zoom-in hover:scale-105 transition-transform duration-200 mx-auto"
                 />
-              </div>
-
-              {/* Certificate Details */}
-              <div className="text-center space-y-2">
-                <h3 className="text-2xl md:text-3xl font-bold text-white">{selectedCert.title}</h3>
-                <p className="text-yellow-400 text-lg font-medium">{selectedCert.issuer}</p>
-                <span className="inline-block px-4 py-1 bg-yellow-400/20 text-yellow-200 rounded-full text-sm border border-yellow-400/30">
-                  {selectedCert.date}
-                </span>
               </div>
             </motion.div>
           </div>
