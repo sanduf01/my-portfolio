@@ -471,7 +471,6 @@ export default function App() {
                 <span ref={typedRef}></span>
               </div>
             </div>
-            <a href="#contact" className="absolute -bottom-6 -right-6 bg-yellow-400 text-black w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-transform duration-300 hover:scale-110">💬</a>
           </motion.div>
         </div>
       </section>
