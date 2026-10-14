@@ -479,7 +479,7 @@ export default function App() {
       <section className="max-w-4xl mx-auto py-24 px-6" id="about">
         <h2 className="text-4xl font-bold text-white mb-6">About Me</h2>
         <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-          Motivated undergraduate Software Engineering student seeking a Software Engineering internship. Strong foundation in programming and web technologies, with hands-on experience in learning management systems and collaborative project work. Eager to apply technical skills and contribute to real-world software solutions.
+          Motivated Software Engineering undergraduate with hands-on experience in software quality assurance, test automation, and web application development. Skilled in programming, web technologies, and collaborative software projects, with practical exposure to testing enterprise applications and identifying software defects. Passionate about building reliable, user-focused software solutions while continuously expanding technical knowledge and contributing to real-world engineering teams.
         </p>
       </section>
 
@@ -601,6 +601,29 @@ export default function App() {
               <li>• Created and improved Linux & FOSS educational content</li>
               <li>• Supported undergraduate IT learners in remote learning environments</li>
               <li>• Developed interactive learning materials and resources</li>
+            </ul>
+          </motion.div>
+        </div>
+        <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 shadow-xl group hover:bg-white/10 transition-all duration-300"
+          >
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <h3 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">Intern – Software Quality Assurance | NEMIS Project (Onsite)</h3>
+                <p className="text-yellow-400 text-sm font-medium">Sri Lanka Air Force - HQ</p>
+              </div>
+              <span className="text-gray-400 text-sm">April 2026 – October 2026</span>
+            </div>
+            <ul className="text-gray-300 space-y-2">
+              <li>• Developed E2E test automation scripts for core web application modules using Playwright and Selenium</li>
+              <li>• Authored Node.js and ExcelJS scripts to automate database reporting and extract statistics</li>
+              <li>• Conducted Role-Based Access Control (RBAC) security audits across 6+ administrative user tiers</li>
+              <li>• Managed bug lifecycles in Jira and organized test suites within bi-weekly Agile sprints</li>
             </ul>
           </motion.div>
         </div>
