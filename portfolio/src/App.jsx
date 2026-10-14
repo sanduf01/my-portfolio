@@ -581,7 +581,7 @@ export default function App() {
         >
           Experience
         </motion.h2>
-        <div className="space-y-12">
+        <div className="space-y-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
